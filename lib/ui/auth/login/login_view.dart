@@ -23,7 +23,6 @@ class LoginView extends StatelessWidget with $LoginView {
         busy: model.isBusy,
         onMainButtonTapped: () {
           model.saveData(type: '');
-          model.loginwithMobile(mobilenoController.text, context);
         },
         onCreateAccountTapped: model.navigateToCreateAccount,
         validationMessage: model.validationMessage,
@@ -32,26 +31,30 @@ class LoginView extends StatelessWidget with $LoginView {
         mainButtonTitle: 'SIGN IN',
         form: Column(
           children: [
+            Column(
+              children: [
+                TextField(
+                  onChanged: (String? val) {
+                    print(mobilenoController.text);
+                  },
+                  decoration: const InputDecoration(labelText: 'MobileNo'),
+                  controller: mobilenoController,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    model.loginwithMobile(mobilenoController.text, context);
+                  },
+                  child: const Text('SignIn with Mobile'),
+                ),
+              ],
+            ),
             TextField(
-              onChanged: (String? val) {
-                print(mobilenoController.text);
-              },
-              decoration: const InputDecoration(labelText: 'MobileNo'),
-              controller: mobilenoController,
+              decoration: const InputDecoration(labelText: 'Email'),
+              controller: emailController,
             ),
-            Visibility(
-              visible: false,
-              child: TextField(
-                decoration: const InputDecoration(labelText: 'Email'),
-                controller: emailController,
-              ),
-            ),
-            Visibility(
-              visible: false,
-              child: TextField(
-                decoration: const InputDecoration(labelText: 'Password'),
-                controller: passwordController,
-              ),
+            TextField(
+              decoration: const InputDecoration(labelText: 'Password'),
+              controller: passwordController,
             ),
           ],
         ),
