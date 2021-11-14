@@ -36,6 +36,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.createAccountView, page: CreateAccountView),
     RouteDef(Routes.phoneAuthView, page: PhoneAuthView),
     RouteDef(Routes.loginView, page: LoginView),
+    RouteDef(Routes.phoneAuthView, page: PhoneAuthView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;

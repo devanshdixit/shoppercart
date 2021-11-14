@@ -42,7 +42,11 @@ class LoginView extends StatelessWidget with $LoginView {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    model.loginwithMobile(mobilenoController.text, context);
+                    model.loginwithMobile(
+                      mobilenoController.text,
+                      context,
+                      updateOtp: (isOtp, verificationId) {},
+                    );
                   },
                   child: const Text('SignIn with Mobile'),
                 ),

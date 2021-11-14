@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class Assets {
   static const String _imagesRoot = "assets/images/";
+  static String bgtop = _imagesRoot + "bgtop.png";
+  static String auth = _imagesRoot + "auth.png";
   static String firebase = _imagesRoot + "rider.png";
   static String bgimg = _imagesRoot + "bgimg.png";
   static String btnbgimg = _imagesRoot + "btnbg.png";

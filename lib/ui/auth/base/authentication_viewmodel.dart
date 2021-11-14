@@ -34,12 +34,13 @@ abstract class AuthenticationViewModel extends FormViewModel {
     notifyListeners();
   }
 
-  Future loginwithMobile(String mobile, BuildContext context) async {
+  Future loginwithMobile(String mobile, BuildContext context,
+      {required Function(bool isOtp, String verificationId) updateOtp}) async {
     FirebaseAuth _auth = FirebaseAuth.instance;
-    _auth.verifyPhoneNumber(
+    await _auth.verifyPhoneNumber(
       phoneNumber: mobile,
-      timeout: const Duration(seconds: 60),
-      verificationCompleted: (AuthCredential authCredential) {
+      timeout: const Duration(seconds: 120),
+      verificationCompleted: (PhoneAuthCredential authCredential) {
         _auth.signInWithCredential(authCredential).then((result) {
           log.v('Result after signInWithCredential ${result.user}');
           navigationService.clearStackAndShow(Routes.startUpView);
@@ -47,57 +48,35 @@ abstract class AuthenticationViewModel extends FormViewModel {
           throw FirestoreApiException(message: '$e');
         });
       },
-      verificationFailed: (FirebaseAuthException exception) {
-        throw FirestoreApiException(message: '$exception');
+      verificationFailed: (FirebaseAuthException e) {
+        if (e.code == 'invalid-phone-number') {
+          throw Exception('The provided phone number is not valid.');
+        }
       },
-      codeSent: (String verificationId, [int? forceResendingToken]) {
-        final TextEditingController _codeController = TextEditingController();
-        showDialog(
-          context: context,
-          barrierDismissible: false,
-          builder: (context) => AlertDialog(
-            title: const Text("Enter SMS Code"),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                TextField(
-                  controller: _codeController,
-                ),
-              ],
-            ),
-            actions: <Widget>[
-              TextButton(
-                child: const Text("Done"),
-                onPressed: () async {
-                  FirebaseAuth auth = FirebaseAuth.instance;
-                  final smsCode = _codeController.text.trim();
-                  final _credential = PhoneAuthProvider.credential(
-                    verificationId: verificationId,
-                    smsCode: smsCode,
-                  );
-
-                  auth
-                      .signInWithCredential(_credential)
-                      .then((UserCredential result) async {
-                    await handleAuthenticationResponse(
-                        FirebaseAuthenticationResult(user: result.user));
-                    log.v('Auth result is $result');
-                    navigationService.clearStackAndShow(successRoute);
-                  }).catchError((e) {
-                    throw FirestoreApiException(message: '$e');
-                  });
-                },
-              )
-            ],
-          ),
-        );
+      codeSent: (String verifyId, int? resendToken) async {
+        updateOtp(true, verifyId);
       },
-      codeAutoRetrievalTimeout: (String verificationId) {
-        verificationId = verificationId;
-        print(verificationId);
-        print("Timout");
-      },
+      codeAutoRetrievalTimeout: (String verificationId) {},
     );
+  }
+
+  codeverify(String smscode, String verifyId) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+      verificationId: verifyId,
+      smsCode: smscode,
+    );
+    await auth
+        .signInWithCredential(credential)
+        .then((UserCredential result) async {
+      await handleAuthenticationResponse(
+          FirebaseAuthenticationResult(user: result.user));
+      log.v('Auth result is $result');
+      navigationService.clearStackAndShow(successRoute);
+    }).catchError((e) {
+      throw FirestoreApiException(message: '$e');
+    });
+    navigationService.clearStackAndShow(Routes.startUpView);
   }
 
   Future<FirebaseAuthenticationResult> runAuthentication();

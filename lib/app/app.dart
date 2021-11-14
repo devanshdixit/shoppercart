@@ -15,6 +15,7 @@ import 'package:yoga/ui/startup/startup_view.dart';
     CupertinoRoute(page: CreateAccountView),
     CupertinoRoute(page: PhoneAuthView),
     CupertinoRoute(page: LoginView),
+    CupertinoRoute(page: PhoneAuthView),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),

@@ -35,7 +35,13 @@ class StartUpViewModel extends BaseViewModel {
     } else {
       log.v('No user on disk, navigate to the LoginView');
       setBusy(false);
-      _navigationService.replaceWith(Routes.loginView);
+      _navigationService.replaceWith(Routes.phoneAuthView);
     }
+  }
+
+  Future<void> logout() async {
+    await userService.logout;
+    log.v('Successfully Loggeg out');
+    runStartupLogic();
   }
 }

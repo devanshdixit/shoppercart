@@ -15,6 +15,7 @@ class StartUpView extends StatelessWidget {
         });
       },
       builder: (context, model, child) => Scaffold(
+        appBar: AppBar(),
         body: SafeArea(
           child: model.isBusy
               ? const Center(
@@ -22,8 +23,13 @@ class StartUpView extends StatelessWidget {
                     color: Colors.black,
                   ),
                 )
-              : const Center(
-                  child: Text('data'),
+              : Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      model.logout();
+                    },
+                    child: Text('Log Out'),
+                  ),
                 ),
         ),
       ),
