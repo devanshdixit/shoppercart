@@ -3,11 +3,11 @@ import 'package:flutter/rendering.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
-import 'package:yoga/ui/auth/phoneAuth/phone_auth_view.form.dart';
-import 'package:yoga/ui/auth/phoneAuth/phone_auth_viewmodel.dart';
-import 'package:yoga/ui/shared/constants.dart';
+import 'package:shopperscart/ui/auth/phoneAuth/phone_auth_view.form.dart';
+import 'package:shopperscart/ui/auth/phoneAuth/phone_auth_viewmodel.dart';
+import 'package:shopperscart/ui/shared/constants.dart';
 import 'package:country_picker/country_picker.dart';
-import 'package:yoga/ui/shared/ui_helpers.dart';
+import 'package:shopperscart/ui/shared/ui_helpers.dart';
 
 @FormView(fields: [
   FormTextField(name: 'mobileNo'),

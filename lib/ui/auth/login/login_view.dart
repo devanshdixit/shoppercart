@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
-import 'package:yoga/ui/auth/login/authentication_layout.dart';
+import 'package:shopperscart/ui/auth/login/authentication_layout.dart';
 
 import 'login_view.form.dart';
 import 'login_viewmodel.dart';

@@ -1,5 +1,5 @@
-import 'package:yoga/ui/shared/styles.dart';
-import 'package:yoga/ui/shared/ui_helpers.dart';
+import 'package:shopperscart/ui/shared/styles.dart';
+import 'package:shopperscart/ui/shared/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/foundation.dart';

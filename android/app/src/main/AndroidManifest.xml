@@ -2,9 +2,12 @@
     package="com.yogiction.yoga">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
    <application
-        android:label="yoga"
-        android:icon="@mipmap/ic_launcher">
+        android:label="shopperscart"
+        android:icon="@mipmap/launcher_icon">
+          <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBGp2Pnbz9Htx-jMVQPXXES7t0iA4tQwTw"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

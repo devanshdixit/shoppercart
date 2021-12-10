@@ -1,8 +1,8 @@
 // Horizontal Spacing
 import 'package:flutter/material.dart';
-import 'package:yoga/app/router_names.dart';
-import 'package:yoga/ui/shared/constants.dart';
-import 'package:yoga/ui/shared/styles.dart';
+import 'package:shopperscart/app/router_names.dart';
+import 'package:shopperscart/ui/shared/constants.dart';
+import 'package:shopperscart/ui/shared/styles.dart';
 
 const Widget horizontalSpaceTiny = SizedBox(width: 5.0);
 const Widget horizontalSpaceSmall = SizedBox(width: 10.0);

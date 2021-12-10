@@ -4,6 +4,42 @@ class Assets {
   static const String _imagesRoot = "assets/images/";
   static String bgtop = _imagesRoot + "bgtop.png";
   static String auth = _imagesRoot + "auth.png";
+  static String locIcon = _imagesRoot + "locicon.png";
+  static String storeIcon = _imagesRoot + "storeicon.png";
+  static String cosco = _imagesRoot + "cosco.png";
+  static String loblaws = _imagesRoot + "loblaws.png";
+  static String rcs = _imagesRoot + "rcs.jpg";
+  static String bag = _imagesRoot + "bag_24px.png";
+  static String menu = _imagesRoot + "menu_24px.png";
+  static String curr = _imagesRoot + "curr.png";
+  static String asda = _imagesRoot + "asda.png";
+  static String coop = _imagesRoot + "coop.jpg";
+  static String debenhams = _imagesRoot + "debenhams.jpg";
+  static String farmfoods = _imagesRoot + "farmfoods.png";
+  static String footlocker = _imagesRoot + "footlocker.png";
+  static String handm = _imagesRoot + "h&m.png";
+  static String iceland = _imagesRoot + "iceland.png";
+  static String jd = _imagesRoot + "jd.png";
+  static String lidl = _imagesRoot + "lidl.png";
+  static String mands = _imagesRoot + "m&s.png";
+  static String morrisons = _imagesRoot + "morrisons.jpg";
+  static String ocado = _imagesRoot + "ocado.png";
+  static String poundland = _imagesRoot + "poundland.jpg";
+  static String primark = _imagesRoot + "primark.png";
+  static String riverisland = _imagesRoot + "riverisland.jpg";
+  static String sainsbury = _imagesRoot + "sainsbury.png";
+  static String skechers = _imagesRoot + "skechers.jpg";
+  static String tesco = _imagesRoot + "tesco.jpg";
+  static String waitrose = _imagesRoot + "waitrose.jpg";
+  static String zara = _imagesRoot + "zara.png";
+
+  static String curren = _imagesRoot + "curren.png";
+  static String user = _imagesRoot + "user.png";
+  static String bank = _imagesRoot + "bank.png";
+  static String credit = _imagesRoot + "credit.png";
+  static String emptyorder = _imagesRoot + "empty_order.png";
+  static String ordericon = _imagesRoot + "ordericon.png";
+
   static String firebase = _imagesRoot + "rider.png";
   static String bgimg = _imagesRoot + "bgimg.png";
   static String btnbgimg = _imagesRoot + "btnbg.png";
@@ -69,52 +105,36 @@ const boatTypes = [
   'Banana charter service',
 ];
 
-class WaterLoc {
-  final String loc;
-
-  WaterLoc(this.loc);
+class Shop {
+  final String name;
+  final String imagepath;
+  Shop(this.name, this.imagepath);
 }
 
-List<WaterLoc> boatLoc = [
-  WaterLoc('AA Rano'),
-  WaterLoc('Ajah'),
-  WaterLoc('Apapa'),
-  WaterLoc('Badagry'),
-  WaterLoc('Badore'),
-  WaterLoc('Bariga'),
-  WaterLoc('Beta Jetty'),
-  WaterLoc('Bond'),
-  WaterLoc('CMS'),
-  WaterLoc('Coconut'),
-  WaterLoc('Ebute Ero'),
-  WaterLoc('Fairway Buoy'),
-  WaterLoc('Five Cowries'),
-  WaterLoc('Folawiyo'),
-  WaterLoc('Gbaji'),
-  WaterLoc('Heyden'),
-  WaterLoc('Ibru'),
-  WaterLoc('Ijegun'),
-  WaterLoc('Ikorodu'),
-  WaterLoc('Karma Jetty'),
-  WaterLoc('Lagos State Jetty'),
-  WaterLoc('Lekki Addax'),
-  WaterLoc('Liverpool Jetty'),
-  WaterLoc('Mile 2'),
-  WaterLoc('MRS Oil Jetty'),
-  WaterLoc('NACJ'),
-  WaterLoc('Nigerdock'),
-  WaterLoc('Ojo'),
-  WaterLoc('Paradise'),
-  WaterLoc('PWA'),
-  WaterLoc('Rain Oil Jetty'),
-  WaterLoc('Sabokoji'),
-  WaterLoc('SBM Lagos'),
-  WaterLoc('Snake Island'),
-  WaterLoc('Tincan'),
-  WaterLoc('Tolu'),
-  WaterLoc('Volswagen'),
-  WaterLoc('Eleganza Private Jetty'),
-  WaterLoc('Festac Jetty'),
+List<Shop> shopList = [
+  Shop('Associated Dairies', Assets.asda),
+  Shop('Co-operative', Assets.coop),
+  Shop('Costco', Assets.cosco),
+  Shop('Debenhams', Assets.debenhams),
+  Shop('FarmFoods', Assets.farmfoods),
+  Shop('FootLocker', Assets.footlocker),
+  Shop('Hennes & Mauritz', Assets.handm),
+  Shop('IceLand', Assets.iceland),
+  Shop('JD Sports', Assets.jd),
+  Shop('Lidl', Assets.lidl),
+  Shop('Loblaws', Assets.loblaws),
+  Shop('Marks & Spencer', Assets.mands),
+  Shop('Morrisons', Assets.morrisons),
+  Shop('Ocado', Assets.ocado),
+  Shop('PoundLand', Assets.poundland),
+  Shop('Primark', Assets.primark),
+  Shop('River Island', Assets.riverisland),
+  Shop('Sainsbury', Assets.sainsbury),
+  Shop('Skechers', Assets.skechers),
+  Shop('Tesco', Assets.tesco),
+  Shop('Waitrose', Assets.waitrose),
+  Shop('Zara', Assets.zara),
+  Shop('RCS', Assets.rcs),
 ];
 
 String addtwostrings(String st1, String st2) {

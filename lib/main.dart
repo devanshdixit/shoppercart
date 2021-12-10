@@ -1,11 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:shopperscart/app/app.router.dart';
+import 'package:shopperscart/services/distance.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:yoga/app/app.router.dart';
-import 'package:yoga/services/push_notification_service.dart';
-import 'package:yoga/ui/BottomSheetUi/setup_bottom_sheet_ui.dart';
+import 'package:shopperscart/services/push_notification_service.dart';
+import 'package:shopperscart/ui/BottomSheetUi/setup_bottom_sheet_ui.dart';
 import 'app/app.locator.dart';
 
 void main() async {
@@ -16,6 +17,8 @@ void main() async {
   setupBottomSheetUi();
   final _pushNotification = locator<PushNotificationService>();
   _pushNotification.initializePushNotificationService();
+  final _calculate = locator<Calculate>();
+  await _calculate.getCurrentLocation();
   runApp(
     VxState(
       store: MyStore(),
@@ -31,10 +34,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
-        primaryColor: Colors.amber,
+        fontFamily: 'Poppins',
+        primaryColor: Colors.green,
+        appBarTheme: AppBarTheme(
+          elevation: 0.0,
+          actionsIconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.black),
+        ),
       ),
       navigatorKey: StackedService.navigatorKey,
       onGenerateRoute: StackedRouter().onGenerateRoute,
@@ -44,14 +54,53 @@ class MyApp extends StatelessWidget {
 
 class MyStore extends VxStore {
   Map<String, dynamic> data = {};
+  String selectedStore = '';
+  List cart = [];
 }
 
-class Increment extends VxMutation<MyStore> {
+class AddtoCart extends VxMutation<MyStore> {
+  final Map<String, dynamic> items;
+
+  AddtoCart(this.items);
+  @override
+  perform() {
+    store!.cart.add(items);
+  }
+}
+
+class RemovefromCart extends VxMutation<MyStore> {
+  final int index;
+
+  RemovefromCart(this.index);
+  @override
+  perform() {
+    store!.cart.removeAt(index);
+  }
+}
+
+class SaveData extends VxMutation<MyStore> {
   final Map<String, dynamic> data;
 
-  Increment(this.data);
+  SaveData(this.data);
   @override
   perform() {
     store!.data.addAll(data);
+  }
+}
+
+class SaveStore extends VxMutation<MyStore> {
+  final String selectedStore;
+
+  SaveStore({required this.selectedStore});
+  @override
+  perform() {
+    store!.selectedStore = selectedStore;
+  }
+}
+
+class GetSelectedStore extends VxMutation<MyStore> {
+  @override
+  perform() {
+    return store!.selectedStore;
   }
 }

@@ -1,4 +1,4 @@
-name: yoga
+name: shopperscart
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -55,7 +55,20 @@ dependencies:
   permission_handler: ^6.0.1+1
   url_strategy: ^0.2.0
   auth_buttons: ^1.0.1+4
-
+  snapping_sheet: ^3.1.0
+  #Location
+  places_service: ^0.1.0
+  geolocator:
+  geocoding: ^2.0.0
+  geodesy: 0.4.0-nullsafety.0
+  date_format: ^2.0.2
+  flutter_polyline_points: ^1.0.0
+  google_geocoding: ^0.2.0
+  location: ^4.3.0
+  get_it: ^4.0.2
+  #Velocity
+  google_maps_place_picker: ^2.1.0-nullsafety.3
+  google_maps_flutter: ^2.1.1 
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -67,6 +80,10 @@ dev_dependencies:
   freezed: ^0.14.1+2
   json_serializable: ^4.1.0
 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo.jpeg"
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -89,6 +106,8 @@ flutter:
   assets:
     - assets/images/auth.png
     - assets/images/bgtop.png
+    - assets/images/locicon.png
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -105,6 +124,8 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+          weight: 600
     # - family: Trajan Pro
     #   fonts:
     #     - asset: fonts/TrajanPro.ttf

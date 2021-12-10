@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:yoga/app/app.logger.dart';
+import 'package:shopperscart/exceptions/firestore_api_exception.dart';
+import 'package:shopperscart/app/app.logger.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:yoga/exceptions/firestore_api_exception.dart';
-import 'package:yoga/models/application_models.dart';
+import 'package:shopperscart/models/application_models.dart';
 
 class FirestoreApi {
   final log = getLogger('FirestoreApi');

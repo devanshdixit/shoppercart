@@ -1,8 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:yoga/app/app.locator.dart';
-import 'package:yoga/app/router_names.dart';
+import 'package:shopperscart/app/app.locator.dart';
+import 'package:shopperscart/app/router_names.dart';
 
 void setupBottomSheetUi() {
   final bottomSheetService = locator<BottomSheetService>();

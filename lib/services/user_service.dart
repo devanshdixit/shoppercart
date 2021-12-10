@@ -1,8 +1,8 @@
-import 'package:yoga/api/firestore_api.dart';
-import 'package:yoga/app/app.locator.dart';
-import 'package:yoga/app/app.logger.dart';
-import 'package:yoga/models/application_models.dart';
-import 'package:yoga/ui/auth/login/login_view.dart';
+import 'package:shopperscart/api/firestore_api.dart';
+import 'package:shopperscart/app/app.locator.dart';
+import 'package:shopperscart/app/app.logger.dart';
+import 'package:shopperscart/models/application_models.dart';
+import 'package:shopperscart/ui/auth/login/login_view.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 import 'package:stacked_services/stacked_services.dart';
 
