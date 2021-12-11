@@ -60,7 +60,15 @@ dependencies:
   auth_buttons: ^1.0.1+4
   snapping_sheet: ^3.1.0
   #Location
-
+  geolocator: ^7.0.3
+  google_geocoding: ^0.2.0
+  google_maps_flutter: ^2.1.1
+  places_service: ^0.1.0+2
+  date_format: ^2.0.4
+  location: ^4.3.0
+  geocoding: ^2.0.1
+  geodesy: ^0.3.2
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
